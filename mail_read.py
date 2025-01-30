@@ -27,8 +27,8 @@ def mark_as_unread(mail, num):
 def start_sending_answers():
     # Подключение к серверу
     print("Подключаюсь к почтовому северу.")
-    mail = imaplib.IMAP4_SSL(imap_server)
-    mail.login(imap_username, imap_password)
+    mail = imaplib.IMAP4_SSL(IMAP_SERVER)
+    mail.login(IMAP_USERNAME, IMAP_PASSWORD)
 
     # Выбор почтового ящика (INBOX - это стандартное имя для входящих писем)
     mail.select("INBOX")
@@ -70,7 +70,7 @@ def start_sending_answers():
                 )
         from_mail = sender
 
-        if from_mail == trusted_mail:
+        if from_mail == TRUSTED_MAIL:
             subject_tema = subject.replace("Re: ", "")
 
             html_content = content.split("_____")
