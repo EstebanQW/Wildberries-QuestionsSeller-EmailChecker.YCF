@@ -1,6 +1,7 @@
+import time
+
 import requests
 from login import *
-import time
 
 
 def send_answer(from_mail, subject_tema, content_telo, answer_otvet):
@@ -16,7 +17,7 @@ def send_answer(from_mail, subject_tema, content_telo, answer_otvet):
         )
         return reject_question(subject_tema, content_telo)
     else:
-        print(f"По API НЕ отправляю. Т.к. не нашел тип ответа в письме.")
+        print("По API НЕ отправляю. Т.к. не нашел тип ответа в письме.")
 
 
 url = "https://feedbacks-api.wildberries.ru/api/v1/questions"

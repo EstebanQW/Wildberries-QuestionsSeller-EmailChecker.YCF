@@ -1,10 +1,11 @@
-import imaplib
 import email
-from email.header import decode_header
+import imaplib
 import time
+from email.header import decode_header
+
+from API_send_answer import send_answer
 from bs4 import BeautifulSoup
 from login import *
-from API_send_answer import send_answer
 
 
 def mark_as_unread(mail, num):
@@ -17,7 +18,7 @@ def mark_as_unread(mail, num):
         if status[0] != "OK":
             print(f"Ошибка при сбросе флага 'Seen': {status[0]}")
         else:
-            print(f"Письмо снова помечено как непрочитанное.")
+            print("Письмо снова помечено как непрочитанное.")
     except imaplib.IMAP4.error as e:
         print(f"Ошибка IMAP: {e}")
     except Exception as e:
